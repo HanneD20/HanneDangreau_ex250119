@@ -1,0 +1,23 @@
+Question 12:
+------------
+Go to ensembl.org
+- organism: mouse
+- variant: rs4224828
+
+location: Chromosome 4: 136,443,899-136,443,999
+
+
+Question 13:
+------------
+Go to ensembl.org
+- organism: zebrafish
+- gene: MYCN
+
+--> Ensembl id is ENSDARG00000006837.9, situated on chromosome 20 position:33,294,428-33,299,384
+
+curl 'http://rest.ensembl.org/sequence/region/zebrafish/20:33294428..33294528:1?type=genomic' -H 'Content-type:text/x-fasta'
+
+chromosome:GRCz11:20:33294428:33294528:1
+TAGAATAATACTTCACAGCCCGAAACACAGAGGCGCAGAACAGTCTTCAGTCGCCGCGGT
+AGATGTGCGACTCCAAACGGGAGGCACAGTGACTGCGATAA
+
