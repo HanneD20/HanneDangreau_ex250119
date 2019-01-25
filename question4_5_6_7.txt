@@ -1,0 +1,23 @@
+Question 4:
+-----------
+SELECT gene_name, (seq_region_end - seq_region_start +1) AS length FROM gene ORDER BY length ASC LIMIT 1;
+
+Question 5:
+-----------
+SELECT gene_name, count(*) AS total_transcripts FROM gene JOIN transcript ON gene.gene_id = transcript.gene_id GROUP BY gene_name ORDER BY total_transcripts DESC LIMIT 1;
+
+Question 6:
+-----------
+SELECT chromosome, count(*) AS total_genes FROM gene WHERE description LIKE "%CANCER%" GROUP BY chromosome ORDER BY total_genes DESC LIMIT 1 OFFSET 1;
+
+SELECT gene.chromosome, count(*) AS total_exons FROM gene JOIN transcript ON gene.gene_id = transcript.gene_id JOIN exon_transcript ON transcript.transcript_id = exon_transcript.transcript_id WHERE gene.chromosome = 9;
+
+Question 7:
+-----------
+SELECT count(*) FROM exon;
+
+SELECT count(*) FROM exon_transcript;
+
+SELECT count(DISTINCT exon_id) FROM exon_transcript;
+
+
