@@ -1,1 +1,28 @@
 NORMALIZATION
+
+UNF:
+----
+DB(pers_no, name, date_birth, lab_code, lab_name, research_code, research_descr, research_superv)
+
+1NF:
+----
+DB(pers_no, name, date_birth, lab_code, lab_name)
+researchref(pers_no, research_code)
+research(research_code, research_descr, research_superv)
+
+reseach code, description and supervisor are repeating fields so they should be put in a second table so that no group of columns respresents similar information. The DB table and research table have a many-to-many relationship, so a cross-reference table should be made.
+
+2NF:
+----
+DB(pers_no, name, date_birth)
+labref(pers_no, lab_code)
+lab(lab_code, lab_name)
+research(research_code, research_descr, research_superv)
+
+all non-key columns should be dependent on the primary key (pers_no, research_code). This is not the case as lab_code and lab_name are not dependent on the personnel. The DB table and lab table have a many-to-many relatio,ship, so a cross-reference table should be made.
+
+3NF:
+----
+= 2NF
+
+all non-key columns should be non-transitively (directly) depenent on primary key. This is the case.
