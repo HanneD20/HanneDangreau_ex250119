@@ -1,0 +1,12 @@
+Question 8:
+-----------
+db.bioinf_mongo_examen.count({method_of_admission:{$all:["TABLET";"BUCCAL","SUBLINGUAL"]}})
+
+Question 9:
+-----------
+db.bioinf_mongo_examen.find({percentage_of_side_effects:{$gt:8}}).count()
+
+Question 10:
+------------
+db.bioinf_mongo_examen.aggregate([{$group:{_id:{company:"$company",medicine:"$drug"},perc:{$avg:"$percentage_of_side_effects"}}},{$group:{_id:"_id.company", perc_side_effects:{$gt:10}}},{$sort:{perc_side_effects:-1}}])
+
